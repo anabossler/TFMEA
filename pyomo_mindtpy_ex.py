@@ -15,8 +15,8 @@ model.C3 = pyo.Constraint(expr= 2*x-y<=10)
 
 model.obj = pyo.Objective(expr= x+y*x, sense=maximize)
 
-opt = SolverFactory('couenne', executable='C:\\couenne\\bin\\couenne.exe')
-opt.solve(model)
+opt = SolverFactory('mindtpy')
+opt.solve(model, mip_solver='gurobi', nlp_solver='ipopt')
 
 model.pprint()
 
